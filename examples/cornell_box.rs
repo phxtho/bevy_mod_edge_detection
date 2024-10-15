@@ -85,7 +85,7 @@ fn setup_ui(mut commands: Commands) {
                 ..default()
             }),
         )
-        .insert(BackgroundColor(Color::BLACK.with_a(0.75)));
+        .insert(BackgroundColor(Color::BLACK.with_alpha(0.75)));
 }
 
 fn spawn_cornell_box(
@@ -122,7 +122,7 @@ fn spawn_cornell_box(
     // left
     commands.spawn(PbrBundle {
         mesh: plane.clone(),
-        material: materials.add(Color::RED),
+        material: materials.add(Color::srgb(1., 0., 0.)),
         transform: Transform::from_xyz(2.5, 2.5, 0.0)
             .with_rotation(Quat::from_rotation_z(FRAC_PI_2)),
         ..default()
@@ -130,7 +130,7 @@ fn spawn_cornell_box(
     // right
     commands.spawn(PbrBundle {
         mesh: plane,
-        material: materials.add(Color::GREEN),
+        material: materials.add(Color::srgb(0., 1., 0.)),
         transform: Transform::from_xyz(-2.5, 2.5, 0.0)
             .with_rotation(Quat::from_rotation_z(-FRAC_PI_2)),
         ..default()
